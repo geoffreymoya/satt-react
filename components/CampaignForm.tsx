@@ -1,4 +1,4 @@
-import {  APPROVE_ABI, CMP_FACTORY, CMP_FACTORY_ABI, CMP_HASH,  IPFS_ENDPOINT,  SATT_TOKEN } from '@/conf/conf';
+import {   CMP_FACTORY, CMP_HASH,  IPFS_ENDPOINT,  SATT_TOKEN } from '@/conf/conf';
 import { useAccount, useStarknet } from '@starknet-react/core'
 import {useBalance} from '@starknet-react/core' 
 import { CID, create } from "ipfs-http-client";
