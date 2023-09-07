@@ -12,6 +12,7 @@ import {hash,Contract, CallData, Call} from 'starknet'
 
 import 'react-dropdown/style.css';
 import "react-datepicker/dist/react-datepicker.css";
+import { useRouter } from 'next/router';
 
 const tokens = [
     { value: SATT_TOKEN, label: 'SATT' },
@@ -45,6 +46,8 @@ export default function CampaignForm() {
 
     const { library } = useStarknet()
     const { address,account } = useAccount()
+
+    const router = useRouter()
    
 
    
@@ -71,8 +74,10 @@ export default function CampaignForm() {
 
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-
+    const handleClose = () => {
+        setShow(false);
+        router.push({pathname:'/'})
+    }
 
     const titleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value)
@@ -147,12 +152,12 @@ export default function CampaignForm() {
     
     const postCampaign = (e: React.FormEvent<HTMLFormElement>) => {
 
-        console.log('1')
+       
         e.preventDefault()
         if(isTitlerror || isDescerror || isStartError || isEndError || isAmounterror || isRatioerror)
         return
-        console.log('2')
-        //amount *10 18
+        
+        
 
         var minStart = new Date()
         minStart.setTime(new Date().getTime() + 3600)
@@ -162,7 +167,7 @@ export default function CampaignForm() {
         if(title == '' || desc =='' || !file  || start < minStart || start >= end || amount == 0 || (viewRatio == 0 && likeRatio == 0 && likeRatio == 0 ) )
         return
 
-        console.log('3')
+        
        
         const createCampaign = async () => {
             const filecid = await client.add(file);

@@ -42,6 +42,7 @@ export default function DashBoard() {
             idUser
             amount
             pendingAmount
+            status
         }
     }`
     const { loading, error, data } = useQuery(dashQuery);

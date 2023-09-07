@@ -5,6 +5,7 @@ import { CID, create } from "ipfs-http-client";
 import { CampaignProps } from '@/types/types';
 import { IPFS_ENDPOINT, IPFS_GATEWAY } from '@/conf/conf';
 import { Button, Card } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 
 export default function Campaign({campaign} :CampaignProps) {
 
@@ -23,12 +24,15 @@ export default function Campaign({campaign} :CampaignProps) {
         
         
     },[])
+
+    const router = useRouter()
+
     return(<Card style={{ width: '18rem' }} border='primary'>
         <Card.Img variant="top" src={meta.image} />
         <Card.Body>
     <Card.Title>{meta.title}</Card.Title>
     <Card.Text>{meta.desc}</Card.Text>
-    <Button variant="primary">Details</Button>
+    <Button onClick={() => router.push({pathname:'/campaign/[id]',query:{id: campaign.id}})} variant="primary">Details</Button>
     </Card.Body>
   </Card>)
 }

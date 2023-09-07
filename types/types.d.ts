@@ -1,5 +1,5 @@
 export type CampaignType  = {
-    id:String,
+    id:string,
     advertiser:String,
     title:String,
     description:String,
@@ -16,7 +16,7 @@ export type CampaignType  = {
 };
 
 export type CampaignGraphType  = {
-    id:String,
+    id:string,
     advertiser:String,
     url:string,
     typeSn:number,
@@ -37,6 +37,10 @@ export type CampaignMetaData  = {
 };
 
 export type CampaignProps = {campaign : CampaignGraphType };
+
+export type CampaignDetailsProps = {campaign : CampaignGraphType , promlist : PromType []};
+
+
 
 export type CampaignListProps = {campaignlist : CampaignGraphType [] };
 

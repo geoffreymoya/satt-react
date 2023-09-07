@@ -6,8 +6,8 @@ import { CardGroup } from 'react-bootstrap'
 
 
 export default function MyCampaigns({campaignlist}:CampaignListProps) {
-    return ( <CardGroup>
+    return ( <>
         {campaignlist.map((campaign,i) => <Campaign key={i} campaign={campaign}></Campaign>)}
-        </CardGroup>
+        </>
     )
 }
